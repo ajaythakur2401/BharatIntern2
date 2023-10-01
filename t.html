@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tem.css">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <div class="container">
+        <h1><b><u>Temperature Converter</u></b></h1>
+        <label for="celsius">Enter Temperature in Celsius:</label>
+        <input type="number" id="celsius" placeholder="Enter in  Celsius">
+        <button id="convertBtn">Convert Into Fahrenheit </button>
+        <p id="result"></p>
+    
+        <label for="fahrenheit">Enter Temperature in Fahrenheit:</label>
+        <input type="number" id="fahrenheit" placeholder="Enter in Fahrenheit">
+        <button id="convertBtn1">Convert Into Celsius</button>
+        <p id="result1"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const convertBtn = document.getElementById("convertBtn");
+    const celsiusInput = document.getElementById("celsius");
+    const resultDisplay = document.getElementById("result");
+
+    convertBtn.addEventListener("click", function () {
+        const celsius = parseFloat(celsiusInput.value);
+        if (!isNaN(celsius)) {
+            const fahrenheit = (celsius * 9/5) + 32;
+            resultDisplay.textContent = `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+        } else {
+            resultDisplay.textContent = "Please enter a valid temperature in Celsius.";
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const convertBtn = document.getElementById("convertBtn1");
+    const fahrenheitInput = document.getElementById("fahrenheit");
+    const result1Display = document.getElementById("result1");
+
+    convertBtn1.addEventListener("click", function () {
+        const fahrenheit = parseFloat(fahrenheitInput.value);
+        if (!isNaN(fahrenheit)) {
+            const celsius = (fahrenheit - 32) * 5/9;
+             result1Display.textContent = `${fahrenheit}°F= ${celsius.toFixed(2)}°C`;
+            // result1Display.textContent = `f}°F${celsius.toFixed(2)}°C`;
+        } else {
+            result1Display.textContent = "Please enter a valid temperature in Celsius.";
+        }
+    });
+});
+
+
+
+    </script>
+</body>
+</html>
